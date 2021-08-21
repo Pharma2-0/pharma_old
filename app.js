@@ -17,7 +17,7 @@ app.use(express.static("uploads"));
 
 // database connection
 mongoose
-    .connect('mongodb+srv://admin:JOVHbzpMxfphqyvm@pharmacluster.rclc0.mongodb.net/pharmadb?retryWrites=true', {
+    .connect(process.env.MONGO_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false,

@@ -10,7 +10,7 @@ const postSchema = mongoose.Schema({
     drug: String,
     elab: Date,
     venc: Date,
-    lote: Number,
+    lote: String,
     qrcode: Number
 },{ collection: 'osde' })
 

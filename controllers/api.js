@@ -13,12 +13,22 @@ module.exports = class API{
 
     // fetch product by QR Code
     static async fetchProductByQRCode(req, res) {
-        console.log(req.params.id);
         try{
             const product = await Product.findOne({ qrcode: req.params.id })
             res.status(200).json(product);
         } catch(err) {
             res.status(404).json({ message: err.message });
+        }
+    }
+
+    // create product
+    static async addProduct(req, res) {
+        const product = req.body;
+        try{
+            await Product.create(product);
+            res.status(201).json({ message: "Post created successfully!" });
+        } catch(err) {
+            res.status(400).json({ message: err.message });
         }
     }
 
